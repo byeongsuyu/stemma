@@ -2,6 +2,11 @@
 
 **English** · [한국어](https://github.com/byeongsuyu/stemma/blob/main/README.ko.md)
 
+<p align="center">
+  <a href="https://github.com/byeongsuyu/stemma/blob/main/docs/media/stemma-short.mp4"><img src="https://raw.githubusercontent.com/byeongsuyu/stemma/main/docs/media/stemma-short.gif" width="300" alt="Stemma in 26 seconds"></a>
+  <br><sub>Stemma in 26 seconds — click for the video</sub>
+</p>
+
 A local writing desk for people who rewrite. You keep a private archive of
 everything you have written, find an old piece, write a new one that carries it
 forward, and publish the versions you choose as a bilingual static blog — with

@@ -2,6 +2,11 @@
 
 [English](README.md) · **한국어**
 
+<p align="center">
+  <a href="https://github.com/byeongsuyu/stemma/blob/main/docs/media/stemma-short.mp4"><img src="https://raw.githubusercontent.com/byeongsuyu/stemma/main/docs/media/stemma-short.gif" width="300" alt="26초로 보는 Stemma"></a>
+  <br><sub>26초로 보는 Stemma — 누르면 영상으로 볼 수 있습니다</sub>
+</p>
+
 Stemma는 쓴 글을 고쳐 쓰는 사람을 위한 글쓰기 도구이며, 내 컴퓨터 안에서만
 실행됩니다. 지금까지 쓴 글을 개인 아카이브에 보관하고, 그 안에서 옛 글을 찾고,
 그 글을 이어받는 새 글을 쓰고, 직접 고른 판본을 한국어와 영어로 짝지어 정적
