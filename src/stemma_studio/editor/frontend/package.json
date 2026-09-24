@@ -1,0 +1,1 @@
+{"name":"stemma-editor","private":true,"type":"module","scripts":{"test":"node --test check/*.test.js"}}

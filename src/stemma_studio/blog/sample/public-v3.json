@@ -1,0 +1,347 @@
+{
+  "schema_version": 3,
+  "documents": [
+    {
+      "id": "4cedf5c7ba314fda848ae352859968cf",
+      "slug": "post-d",
+      "translations": {
+        "ko": {
+          "title": "가상 글 D",
+          "summary": null,
+          "body": "가상 글 D r1.\n"
+        },
+        "en": {
+          "title": "Synthetic post D",
+          "summary": null,
+          "body": "Synthetic post D r1.\n"
+        }
+      },
+      "date": {
+        "kind": "created",
+        "value": "2021-07-23",
+        "precision": "day"
+      },
+      "first_published_at": "2026-02-01T09:00:00Z",
+      "published_updated_at": "2026-02-01T09:00:00Z",
+      "assets": []
+    },
+    {
+      "id": "e8fa76bb14b643ff8b7b37dba9558602",
+      "slug": "post-c",
+      "translations": {
+        "ko": {
+          "title": "가상 글 C",
+          "summary": null,
+          "body": "가상 글 C r2.\n"
+        },
+        "en": {
+          "title": "Synthetic post C",
+          "summary": null,
+          "body": "Synthetic post C r2.\n"
+        }
+      },
+      "date": {
+        "kind": "created",
+        "value": "2021-07-23",
+        "precision": "day"
+      },
+      "first_published_at": "2026-02-01T09:00:00Z",
+      "published_updated_at": "2026-02-01T09:00:00Z",
+      "assets": []
+    },
+    {
+      "id": "b0323d9dad584cb6b663374d06f91adc",
+      "slug": "post-a",
+      "translations": {
+        "ko": {
+          "title": "가상 글 A",
+          "summary": null,
+          "body": "가상 글 A r1.\n"
+        },
+        "en": {
+          "title": "Synthetic post A",
+          "summary": null,
+          "body": "Synthetic post A r1.\n"
+        }
+      },
+      "date": {
+        "kind": "source",
+        "value": "2020-01-02",
+        "precision": "day"
+      },
+      "first_published_at": "2026-02-01T09:00:00Z",
+      "published_updated_at": "2026-02-01T09:00:00Z",
+      "assets": []
+    },
+    {
+      "id": "99092dde28574704b0ec34d18f16d70a",
+      "slug": "post-s",
+      "translations": {
+        "ko": {
+          "title": "가상 글 S",
+          "summary": null,
+          "body": "가상 글 S r1.\n"
+        },
+        "en": {
+          "title": "Synthetic post S",
+          "summary": null,
+          "body": "Synthetic post S r1.\n"
+        }
+      },
+      "date": {
+        "kind": "unknown",
+        "value": null,
+        "precision": "unknown"
+      },
+      "first_published_at": "2026-02-01T09:00:00Z",
+      "published_updated_at": "2026-02-01T09:00:00Z",
+      "assets": []
+    }
+  ],
+  "genealogies": [
+    {
+      "document": "4cedf5c7ba314fda848ae352859968cf",
+      "scope_label": "approved_genealogy",
+      "nodes": [
+        {
+          "id": "342ac58f17b94182b0742ca61ac51358",
+          "kind": "unpublished",
+          "month": null
+        },
+        {
+          "id": "4cedf5c7ba314fda848ae352859968cf",
+          "kind": "public"
+        },
+        {
+          "id": "a45a346521de4dac8ed32ab46f2f8f48",
+          "kind": "unpublished",
+          "month": "2022-08"
+        },
+        {
+          "id": "b0323d9dad584cb6b663374d06f91adc",
+          "kind": "public"
+        },
+        {
+          "id": "e8fa76bb14b643ff8b7b37dba9558602",
+          "kind": "public"
+        }
+      ],
+      "edges": [
+        {
+          "id": "a84c137f037c432fa2f4f1846084618a",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "342ac58f17b94182b0742ca61ac51358",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "b8650e92991e410889ce4f41f50e380b",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "c9e1050f55e4453d838caa36b4998478",
+          "parent": "342ac58f17b94182b0742ca61ac51358",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "d8f1a3de8b8441f7b7a6428977b81912",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "4cedf5c7ba314fda848ae352859968cf",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "e6853a9b38014a73bcc705822a648844",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "a45a346521de4dac8ed32ab46f2f8f48",
+          "questions": [],
+          "change_note": {}
+        }
+      ]
+    },
+    {
+      "document": "99092dde28574704b0ec34d18f16d70a",
+      "scope_label": "approved_genealogy",
+      "nodes": [
+        {
+          "id": "99092dde28574704b0ec34d18f16d70a",
+          "kind": "public"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "document": "b0323d9dad584cb6b663374d06f91adc",
+      "scope_label": "approved_genealogy",
+      "nodes": [
+        {
+          "id": "342ac58f17b94182b0742ca61ac51358",
+          "kind": "unpublished",
+          "month": null
+        },
+        {
+          "id": "4cedf5c7ba314fda848ae352859968cf",
+          "kind": "public"
+        },
+        {
+          "id": "a45a346521de4dac8ed32ab46f2f8f48",
+          "kind": "unpublished",
+          "month": "2022-08"
+        },
+        {
+          "id": "b0323d9dad584cb6b663374d06f91adc",
+          "kind": "public"
+        },
+        {
+          "id": "e8fa76bb14b643ff8b7b37dba9558602",
+          "kind": "public"
+        }
+      ],
+      "edges": [
+        {
+          "id": "a84c137f037c432fa2f4f1846084618a",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "342ac58f17b94182b0742ca61ac51358",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "b8650e92991e410889ce4f41f50e380b",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "c9e1050f55e4453d838caa36b4998478",
+          "parent": "342ac58f17b94182b0742ca61ac51358",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "d8f1a3de8b8441f7b7a6428977b81912",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "4cedf5c7ba314fda848ae352859968cf",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "e6853a9b38014a73bcc705822a648844",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "a45a346521de4dac8ed32ab46f2f8f48",
+          "questions": [],
+          "change_note": {}
+        }
+      ]
+    },
+    {
+      "document": "e8fa76bb14b643ff8b7b37dba9558602",
+      "scope_label": "approved_genealogy",
+      "nodes": [
+        {
+          "id": "342ac58f17b94182b0742ca61ac51358",
+          "kind": "unpublished",
+          "month": null
+        },
+        {
+          "id": "4cedf5c7ba314fda848ae352859968cf",
+          "kind": "public"
+        },
+        {
+          "id": "a45a346521de4dac8ed32ab46f2f8f48",
+          "kind": "unpublished",
+          "month": "2022-08"
+        },
+        {
+          "id": "b0323d9dad584cb6b663374d06f91adc",
+          "kind": "public"
+        },
+        {
+          "id": "e8fa76bb14b643ff8b7b37dba9558602",
+          "kind": "public"
+        }
+      ],
+      "edges": [
+        {
+          "id": "a84c137f037c432fa2f4f1846084618a",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "342ac58f17b94182b0742ca61ac51358",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "b8650e92991e410889ce4f41f50e380b",
+          "parent": "b0323d9dad584cb6b663374d06f91adc",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "c9e1050f55e4453d838caa36b4998478",
+          "parent": "342ac58f17b94182b0742ca61ac51358",
+          "child": "e8fa76bb14b643ff8b7b37dba9558602",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "d8f1a3de8b8441f7b7a6428977b81912",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "4cedf5c7ba314fda848ae352859968cf",
+          "questions": [],
+          "change_note": {}
+        },
+        {
+          "id": "e6853a9b38014a73bcc705822a648844",
+          "parent": "e8fa76bb14b643ff8b7b37dba9558602",
+          "child": "a45a346521de4dac8ed32ab46f2f8f48",
+          "questions": [],
+          "change_note": {}
+        }
+      ]
+    }
+  ],
+  "series": [
+    {
+      "id": "825a19d5f796441b883e48fd932ee586",
+      "slug": "first",
+      "translations": {
+        "ko": {
+          "title": "시리즈 first",
+          "summary": null
+        },
+        "en": {
+          "title": "Series first",
+          "summary": null
+        }
+      },
+      "documents": [
+        "e8fa76bb14b643ff8b7b37dba9558602",
+        "b0323d9dad584cb6b663374d06f91adc"
+      ]
+    },
+    {
+      "id": "91cbd95b53f14b369a1a81a5e9af9b51",
+      "slug": "second",
+      "translations": {
+        "ko": {
+          "title": "시리즈 second",
+          "summary": null
+        },
+        "en": {
+          "title": "Series second",
+          "summary": null
+        }
+      },
+      "documents": [
+        "4cedf5c7ba314fda848ae352859968cf",
+        "e8fa76bb14b643ff8b7b37dba9558602"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+/* Shared by the reader, manuscript editor, and publication workspace. */
+@font-face{font-family:'Maru Buri';src:url('fonts/MaruBuri-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Maru Buri';src:url('fonts/MaruBuri-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{color-scheme:light;--paper:#e8e0e5;--surface:#f4eff2;--ink:#38352f;--rose:#956979;--plum:#804263;--rule:#baaab3;--muted:#665761;--reading-font:'Maru Buri',Georgia,'AppleMyungjo',serif;font-family:var(--reading-font);color:var(--ink);background:var(--paper)}

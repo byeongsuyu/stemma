@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# The distribution is stemma-studio; the command it installs is `stemma`.
+name = "stemma-studio"
+version = "0.4.0"
+description = "Writing that descends from earlier writing: a local desk, a genealogy of versions, and a bilingual static blog"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["writing", "blog", "static-site", "genealogy", "stemma", "markdown"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = ["stemma-graph>=0.3.0,<0.4.0"]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/byeongsuyu/stemma"
+Source = "https://github.com/byeongsuyu/stemma"
+
+[project.scripts]
+stemma = "stemma_studio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"stemma_studio.blog" = [
+    "frontend/*.css", "frontend/*.js", "frontend/fonts/*.woff2", "frontend/fonts/*.txt",
+    "frontend/fonts/README.md", "admin_frontend/*.css", "admin_frontend/*.js",
+    "admin_frontend/*.html", "sample/*.json", "math-render.cjs",
+    "vendor/katex/*.cjs", "vendor/*LICENSE", "vendor/README.md",
+]
+"stemma_studio.editor" = ["frontend/*.css", "frontend/*.js", "frontend/*.html"]
+"stemma_studio.locale" = ["*.json"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["src", "tests"]
+extend-exclude = ["src/stemma_studio/blog/vendor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = [
+    "E501",  # the formatter decides where lines wrap
+    "B023",  # render_site's page helpers are called inside the same loop iteration
+    "B905",  # adding strict= to zip would change behaviour, not just style
+    "E731",  # the short assigned lambdas in the renderers read better than defs
+]
+
+[tool.ruff.lint.per-file-ignores]
+# This guard has to keep working on the older interpreter it warns about.
+"scripts/dev.py" = ["UP036"]

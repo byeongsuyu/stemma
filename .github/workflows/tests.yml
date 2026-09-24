@@ -1,0 +1,64 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Node is only needed so the math tests can render KaTeX to static MathML.
+      - name: Run the Python suite
+        run: python -B scripts/dev.py test
+
+  javascript:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        suite:
+          - src/stemma_studio/blog/frontend
+          - src/stemma_studio/editor/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run the browser-logic suite
+        run: npm test
+        working-directory: ${{ matrix.suite }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install ruff
+      - run: ruff format --check .
+      - run: ruff check .
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Prove a wheel carries the frontend files and that the CLI runs from it.
+      - name: Install both packages
+        run: pip install ./packages/stemma_graph .
+      - name: Create and validate a data root
+        run: |
+          mkdir -p /tmp/trial && cd /tmp/trial
+          stemma init
+          stemma --no-sync validate

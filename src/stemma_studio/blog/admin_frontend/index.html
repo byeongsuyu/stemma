@@ -1,0 +1,134 @@
+<!doctype html><html lang="{{lang}}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{admin.page_title}}</title><link rel="stylesheet" href="./admin.css"><script type="application/json" id="messages">{{messages}}</script><script type="module" src="./admin.js"></script></head><body>
+<header class="studio-header"><a class="brand" id="brand" href="./">Stemma<small>{{nav.tagline}}</small></a>
+<nav class="studio-nav" aria-label="{{nav.screens}}"><a id="open-editor" href="/">{{nav.editor}}</a><a id="nav-import" href="./?view=import">{{nav.import}}</a><a id="nav-posts" href="./">{{nav.publication}}</a><a id="nav-site" href="./?view=site">{{nav.site}} <span id="nav-pending" class="badge" hidden></span></a><a id="nav-settings" href="./?view=settings">{{nav.settings}}</a></nav>
+<p class="header-meta"><span id="mode"></span><a id="release-link" target="_blank" rel="noopener" hidden>{{nav.release_preview}}</a><a id="site-link" target="_blank" rel="noopener" hidden>{{nav.read_blog}}</a><button id="interface-language" type="button" class="quiet" aria-label="{{nav.switch_language}}">{{nav.other_language}}</button></p></header>
+<div id="notice" role="status" aria-live="polite"></div>
+<main>
+
+<section id="posts-view" hidden>
+<div id="deploy-banner" class="banner" hidden><p id="deploy-banner-text"></p><a href="./?view=site" data-view="site">{{admin.to_site}}</a></div>
+<div class="view-head"><h1>{{nav.publication}}</h1><form id="search" role="search"><input id="query" type="search" aria-label="{{admin.search.label}}" placeholder="{{admin.search.placeholder}}"><button>{{admin.search.submit}}</button></form></div>
+<p id="list-note" class="lede">{{admin.list.note}}</p>
+<div id="catalog"></div>
+</section>
+
+<section id="post-view" hidden>
+<a class="back" href="./" data-view="posts">{{admin.back}}</a>
+<div class="post-head"><h1 id="title"></h1><p class="post-links"><a id="read-public" hidden target="_blank" rel="noopener">{{admin.read_public}}</a><a id="edit-document" hidden>{{admin.edit_document}}</a></p></div>
+<p id="site-line" class="site-line"></p>
+
+<section class="step" id="step-text"><div class="step-head"><h2>{{admin.step.text}}</h2><p class="step-summary" id="text-summary"></p><button type="button" class="step-toggle" aria-controls="text-body">{{admin.step.edit}}</button></div>
+<div class="step-body" id="text-body" hidden>
+<p id="language-needed" class="warning" hidden>{{admin.text.language_needed}} <a href="./?view=settings" data-view="settings">{{admin.text.language_link}}</a></p>
+<div id="text-sides"><label class="inline">{{admin.text.base}} <select id="revision"></select></label><p id="old-base" class="warning"></p>
+<div class="language-tabs"><button data-side="original" id="tab-original" type="button"></button><button data-side="translation" id="tab-translation" type="button"></button></div>
+<div class="compare" data-side="original"><section class="original"><h3 id="original-heading"></h3><label>{{admin.text.public_title}}<input id="original-title"></label><label>{{admin.text.summary_markup}}<textarea id="original-summary" rows="2"></textarea></label><button id="render-original" type="button" class="quiet">{{admin.text.render}}</button>
+<details id="original-diff" open hidden><summary id="original-diff-title"></summary><div id="original-diff-body" class="diff"></div></details><pre id="original-body"></pre></section>
+<section class="translation"><h3 id="translation-heading"></h3><label>{{admin.text.public_title}}<input id="translation-title"></label><label>{{admin.text.summary_markup}}<textarea id="translation-summary" rows="2"></textarea></label><div class="tool-row"><label class="file">{{admin.text.import_md}}<input id="import" type="file" accept=".md,text/markdown"></label><button id="render-translation" type="button" class="quiet">{{admin.text.render}}</button></div><label>{{admin.text.markdown_body}}<textarea id="translation-body" rows="18"></textarea></label><small>{{admin.text.import_note}}</small></section></div></div>
+<div class="step-foot"><span id="draft-status" class="subtle"></span><button id="recover" type="button" class="quiet" hidden>{{admin.text.recover}}</button></div>
+</div></section>
+
+<section class="step" id="step-meta"><div class="step-head"><h2>{{admin.step.meta}}</h2><p class="step-summary" id="meta-summary"></p><button type="button" class="step-toggle" aria-controls="meta-body">{{admin.step.edit}}</button></div>
+<div class="step-body" id="meta-body" hidden>
+<h3>{{admin.series.heading}}</h3><p id="series-current" class="subtle"></p><label>{{admin.series.choice}}<select id="series-choice"><option value="">{{admin.series.none}}</option><option value="new">{{admin.series.new}}</option></select></label><div id="new-series-fields" hidden><label>{{admin.series.new_ko}}<input id="new-series-ko"></label><label>{{admin.series.new_en}}<input id="new-series-en"></label><p class="subtle">{{admin.series.new_note}}</p></div>
+<h3>{{admin.labels.heading}}</h3><p class="subtle">{{admin.labels.note}}</p><div id="labels"></div>
+<h3>{{admin.attachments.heading}}</h3><div id="attachments"></div><p id="missing" class="warning"></p>
+<p class="subtle">{{admin.slug_note}}</p>
+</div></section>
+
+<section class="step" id="step-preview"><div class="step-head"><h2>{{admin.step.preview}}</h2><p class="step-summary" id="preview-summary"></p></div>
+<div id="preview-review" hidden><div class="preview-tabs" role="tablist" aria-label="{{admin.preview.tabs}}"><button type="button" role="tab" id="tab-url" aria-controls="preview-frame" data-frame="url">{{admin.preview.tab_ko}}</button><button type="button" role="tab" id="tab-en_url" aria-controls="preview-frame" data-frame="en_url">{{admin.preview.tab_en}}</button><button type="button" role="tab" id="tab-graph_url" aria-controls="preview-frame" data-frame="graph_url">{{admin.preview.tab_graph}}</button><a id="preview-open" target="_blank" rel="noopener">{{admin.preview.open}}</a></div>
+<iframe id="preview-frame" role="tabpanel" tabindex="0" title="{{admin.preview.frame}}" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+<p class="subtle">{{admin.preview.note}}</p></div></section>
+<input id="planned" type="hidden">
+
+<details class="more" id="more"><summary>{{admin.more}}</summary><div><button id="revert-post" type="button" class="quiet" hidden>{{admin.revert_post}}</button><button id="unselect" type="button" class="danger" hidden>{{admin.unselect}}</button></div><p class="subtle">{{admin.more_note}}</p></details>
+
+<div class="actionbar" id="actionbar"><div><p id="changes-line"></p><p id="step-hint" class="subtle"></p></div><div class="actionbar-buttons"><a id="to-site" href="./?view=site" data-view="site" hidden>{{admin.to_site}}</a><button id="primary" type="button" class="primary" hidden></button></div></div>
+</section>
+
+<section id="settings-view" hidden>
+<p class="subtle">{{admin.settings.lede_html}}</p>
+<section class="panel" id="site-identity"><h2>{{admin.identity.heading}} <span id="identity-summary" class="subtle"></span></h2>
+<p class="subtle">{{admin.identity.note_html}}</p>
+<label>{{admin.identity.language}}<select id="site-language"><option value="ko">{{common.lang.ko}}</option><option value="en">{{common.lang.en}}</option></select></label>
+<p class="subtle">{{admin.identity.language_note}} <span id="site-language-state"></span></p>
+<div class="two-lang">
+<section class="ko"><h3>{{common.lang.ko}}</h3>
+<label>{{admin.identity.name}}<input id="site-ko-name" autocomplete="off"></label>
+<label>{{admin.identity.author}}<input id="site-ko-author" autocomplete="off"></label>
+<label>{{admin.identity.byline}}<input id="site-ko-byline" autocomplete="off"></label>
+<label>{{admin.identity.intro}}<input id="site-ko-intro" autocomplete="off"></label></section>
+<section class="en"><h3>English</h3>
+<label>{{admin.identity.name}}<input id="site-en-name" autocomplete="off"></label>
+<label>{{admin.identity.author}}<input id="site-en-author" autocomplete="off"></label>
+<label>{{admin.identity.byline}}<input id="site-en-byline" autocomplete="off"></label>
+<label>{{admin.identity.intro}}<input id="site-en-intro" autocomplete="off"></label></section>
+</div>
+<label>{{admin.license.choice}}<select id="site-license"></select></label>
+<p class="subtle">{{admin.license.note_html}}</p>
+<div id="license-custom" hidden>
+<label>{{admin.license.custom_ko}}<input id="site-license-ko" autocomplete="off" placeholder="예: 인용 시 출처를 밝혀 주세요"></label>
+<label>{{admin.license.custom_en}}<input id="site-license-en" autocomplete="off" placeholder="e.g. Please credit the author"></label>
+<label>{{admin.license.url}}<input id="site-license-url" autocomplete="off" placeholder="https://"></label></div>
+<p class="subtle">{{admin.license.preview}} <span id="license-preview"></span></p>
+<button id="save-identity" type="button">{{admin.identity.save}}</button></section>
+<section class="panel" id="homepage-settings"><h2>{{admin.destination.heading}} <span id="homepage-summary" class="subtle"></span></h2>
+<label>{{admin.destination.mode}}<select id="release-mode">
+<option value="local-folder">{{admin.destination.local}}</option>
+<option value="homepage-pr">{{admin.destination.homepage}}</option>
+</select></label>
+<div id="mode-local">
+<label>{{admin.destination.folder}}<input id="release-folder" placeholder="/absolute/path/to/site"></label>
+<label>{{admin.destination.base}}<input id="release-base" value="/" placeholder="/"></label>
+<p class="subtle">{{admin.destination.local_note_html}}</p></div>
+<div id="mode-homepage" hidden>
+<label>{{admin.destination.repository}}<input id="release-destination" placeholder="/absolute/path/to/owner.github.io"></label>
+<label>{{admin.destination.branch}}<input id="release-branch" value="master"></label>
+<p class="subtle">{{admin.destination.homepage_note_html}}</p></div>
+<button id="save-homepage" type="button">{{admin.destination.save}}</button></section>
+</section>
+
+<section id="import-view" hidden>
+<div class="view-head"><h1>{{nav.import}}</h1></div>
+<p class="lede">{{admin.import.lede_html}}</p>
+
+<section class="panel" id="import-form">
+<label>{{admin.import.folder}}<input id="import-folder" placeholder="/absolute/path/to/my-old-blog" autocomplete="off"></label>
+<p class="subtle">{{admin.import.folder_note_html}}</p>
+<label>{{admin.import.rule}}<select id="import-rule">
+<option value="path">{{admin.import.rule_path}}</option>
+<option value="name">{{admin.import.rule_name}}</option>
+</select></label>
+<p class="subtle" id="import-rule-example"></p>
+<button id="import-scan" type="button">{{admin.import.scan}}</button>
+</section>
+
+<section class="panel" id="import-result" hidden>
+<h2 id="import-summary"></h2>
+<p class="subtle" id="import-state"></p>
+<div id="import-groups"></div>
+<p class="act"><button id="import-apply" type="button"></button><span id="import-hint" class="subtle"></span></p>
+</section>
+</section>
+
+<section id="site-view" hidden>
+<div class="view-head"><h1>{{nav.site}}</h1><p class="post-links"><a id="site-url" target="_blank" rel="noopener" hidden></a></p></div>
+<p class="lede" id="site-lede"></p>
+
+<section class="panel" id="progress-panel" hidden><h2>{{admin.progress.heading}}</h2><ol class="stepper" id="progress-steps"></ol>
+<p id="progress-note"></p>
+<div class="panel-actions"><a id="release-preview" target="_blank" rel="noopener" hidden>{{admin.progress.preview}}</a><a id="pr-link" target="_blank" rel="noopener noreferrer" hidden>{{admin.progress.pr}}</a><button id="check" type="button" class="primary">{{admin.progress.check}}</button></div>
+<h3>{{admin.progress.changes}}</h3><ul id="progress-changes" class="changes"></ul>
+<details><summary>{{admin.progress.recovery}}</summary><p class="subtle">{{admin.progress.recovery_note}}</p><button id="interrupt" type="button" class="danger">{{admin.progress.interrupt}}</button></details></section>
+
+<section class="panel" id="changes-panel"><h2 id="changes-title">{{admin.changes.title}}</h2><div id="rollback-banner" class="banner" hidden><p id="rollback-text"></p><button id="cancel-rollback" type="button" class="quiet">{{admin.changes.cancel_rollback}}</button></div>
+<ul id="changes" class="changes"></ul><p id="unchanged" class="subtle"></p><p id="revert-note" class="subtle" hidden>{{admin.changes.revert_note}}</p><p id="pending-error" class="warning"></p>
+<div class="panel-actions"><button id="deploy" type="button" class="primary">{{flow.deploy.pr}}</button><a id="pending-preview" target="_blank" rel="noopener" hidden>{{admin.changes.pending_preview}}</a><p id="deploy-hint" class="subtle"></p></div></section>
+
+<section class="panel" id="series-panel"><h2>{{admin.series.heading}}</h2><p class="subtle">{{admin.series.panel_note}}</p><div id="series-list"></div></section>
+
+<details class="panel" id="history"><summary>{{admin.history.heading}}</summary><div id="history-list"></div><p class="subtle">{{admin.history.note}}</p></details>
+</section>
+
+</main><dialog id="render-dialog" aria-labelledby="render-dialog-heading"><div class="section-heading"><h2 id="render-dialog-heading">{{admin.render.heading}}</h2><button id="close-render" type="button">{{common.close}}</button></div><p class="subtle">{{admin.render.note}}</p><iframe id="render-frame" title="{{admin.render.frame}}" sandbox="allow-same-origin"></iframe></dialog></body></html>

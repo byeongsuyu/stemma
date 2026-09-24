@@ -1,0 +1,1 @@
+{"name":"stemma-blog","private":true,"type":"module","scripts":{"test":"node --test check/*.test.js"}}
