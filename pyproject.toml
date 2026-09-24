@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 # The distribution is stemma-studio; the command it installs is `stemma`.
 name = "stemma-studio"
-version = "0.4.0"
+version = "0.4.1"
 description = "Writing that descends from earlier writing: a local desk, a genealogy of versions, and a bilingual static blog"
 readme = "README.md"
 requires-python = ">=3.12"

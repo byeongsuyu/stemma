@@ -7,4 +7,4 @@ desk and mounts the blog's publication screens. ``tests/test_package_layout.py``
 enforces that direction.
 """
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"

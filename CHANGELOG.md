@@ -5,6 +5,14 @@ Notable changes to Stemma. This project follows
 stored state and the public payload are tracked separately from the package
 version.
 
+## 0.4.1
+
+Documentation only; no change to the code or the stored data.
+
+- The README now describes installing from PyPI (`pipx install stemma-studio`, or
+  `pip install` into a virtual environment) instead of promising it for later, so
+  the project page on PyPI says the same as the repository.
+
 ## 0.4.0 — first public release
 
 The first release intended for people other than the original author. The
