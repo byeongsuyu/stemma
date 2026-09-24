@@ -46,19 +46,31 @@ question. That relationship is first-class data.
 
 ## Install
 
+Stemma is on PyPI as [`stemma-studio`](https://pypi.org/project/stemma-studio/),
+which brings in [`stemma-graph`](https://pypi.org/project/stemma-graph/) with it.
+It is an application with a command, so the simplest way to install it is with
+[pipx](https://pipx.pypa.io/), which gives it an environment of its own:
+
 ```sh
-python3.12 -m venv .venv
-.venv/bin/pip install ./packages/stemma_graph .
+pipx install --python python3.12 stemma-studio
 ```
 
-That gives you the `stemma` command. Once the packages are published, this
-becomes `pip install stemma-studio`, which will pull in `stemma-graph` with it;
-until then, install from a checkout as above.
-
-To work on the code, you can run everything from a checkout with no install at
-all:
+That gives you the `stemma` command; `pipx upgrade stemma-studio` updates it.
+A virtual environment of your own works just as well:
 
 ```sh
+python3.12 -m venv ~/.venvs/stemma
+~/.venvs/stemma/bin/pip install stemma-studio   # the command is ~/.venvs/stemma/bin/stemma
+```
+
+A plain `pip install` into Homebrew's Python on macOS stops with
+`externally-managed-environment`; use one of the two routes above instead.
+
+To work on the code, clone the repository and run everything from the checkout
+with no install at all:
+
+```sh
+git clone https://github.com/byeongsuyu/stemma.git && cd stemma
 python3.12 -B scripts/dev.py test        # the Python suite
 python3.12 -B scripts/dev.py example     # the genealogy library on its own
 ```

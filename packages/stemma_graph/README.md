@@ -7,16 +7,15 @@ It has no runtime dependencies and needs no Stemma, Git, files, data or
 interface — if all you want is the graph, this is the only piece you need.
 
 ```sh
-python3.12 -m venv .venv
-.venv/bin/pip install ./packages/stemma_graph
+pip install stemma-graph
 ```
 
-Install into a virtual environment rather than a global interpreter. Once the
-package is published this becomes `pip install stemma-graph`; until then,
-install the directory as above. It is self-contained, so it can also be copied
-into another project and installed from there.
+Install it into your project's virtual environment rather than a global
+interpreter. It is self-contained, so the directory can also be copied into
+another project and installed from there.
 
-To try it without installing anything, from the repository root:
+To try it without installing anything, from the root of a
+[checkout](https://github.com/byeongsuyu/stemma):
 
 ```sh
 python3.12 -B scripts/dev.py example

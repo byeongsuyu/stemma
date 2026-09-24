@@ -6,7 +6,7 @@ keep it coherent rather than bureaucracy for its own sake.
 ## Getting set up
 
 ```sh
-git clone <your fork>
+git clone https://github.com/byeongsuyu/stemma.git   # or your fork
 cd stemma
 python3.12 -B scripts/dev.py test        # no install needed
 ```

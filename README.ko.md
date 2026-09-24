@@ -59,14 +59,27 @@ Stemma는 글을 **이어받은 것**으로 취급합니다. 이 글이 저 글�
 
 ## 설치
 
+Stemma는 PyPI에 [`stemma-studio`](https://pypi.org/project/stemma-studio/)라는
+이름으로 올라가 있습니다. 설치하면 [`stemma-graph`](https://pypi.org/project/stemma-graph/)도
+함께 설치됩니다. Stemma는 명령어로 실행하는 프로그램이므로, 프로그램마다 별도의
+환경을 만들어 주는 [pipx](https://pipx.pypa.io/)로 설치하는 방법이 가장 간단합니다.
+
 ```sh
-python3.12 -m venv .venv
-.venv/bin/pip install ./packages/stemma_graph .
+pipx install --python python3.12 stemma-studio
 ```
 
-위 명령을 실행하면 `stemma` 명령을 사용할 수 있습니다. 패키지가 배포된 뒤에는
-`pip install stemma-studio` 한 줄만으로 `stemma-graph`까지 함께 설치되지만,
-배포되기 전까지는 위와 같이 내려받은 저장소에서 설치해야 합니다.
+위 명령을 실행하면 `stemma` 명령을 사용할 수 있습니다. 새 버전이 나오면
+`pipx upgrade stemma-studio`로 업데이트합니다. 가상환경을 직접 만들어 설치해도
+됩니다.
+
+```sh
+python3.12 -m venv ~/.venvs/stemma
+~/.venvs/stemma/bin/pip install stemma-studio   # 명령은 ~/.venvs/stemma/bin/stemma
+```
+
+macOS에서 Homebrew로 설치한 Python에 `pip install`을 바로 실행하면
+`externally-managed-environment` 오류가 납니다. 이 경우에는 위의 두 방법 중
+하나를 사용합니다.
 
 ## 시작하기
 
